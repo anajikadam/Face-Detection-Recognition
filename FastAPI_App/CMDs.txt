@@ -1,0 +1,51 @@
+
+
+G: && cd G:\2023\Face_Recognition && .env\Scripts\activate
+
+
+pip install jupyter
+pip install ipykernel
+
+python -m ipykernel install --user --name=.env
+
+/api/RegisterMemberFace Response
+200 --> Success
+400 --> Multiple Face Detected. OR No Face Detected.......!!!
+401 --> Error in Image URL- Not Downloadable
+
+/api/checkMemberFaceRecognition Response
+200 --> Success
+400 --> Error in Image URL- Not Downloadable
+401 --> Face Not Detected.
+402 --> Multiple faces Detected.
+
+
+G: && cd G:\2023\Face_Recognition && .env\Scripts\activate && jupyter notebook
+
+___________________________________________________________________________
+
+python: Python 3.9.10 (tags/v3.9.10:f2f3f53, Jan 17 2022, 15:14:21) [MSC v.1929 64 bit (AMD64)] on win32
+
+C:\Users\user\AppData\Local\Programs\Python\Python39\python.exe -m venv .env
+
+.env\Scripts\activate
+
+python -m pip install --upgrade pip
+pip freeze > requirements.txt
+
+pip install -r requirements.txt
+
+pip install opencv-python==4.5.5.64
+
+pip3 install opencv-contrib-python==4.5.5.62
+
+___________________________________________________________________________
+
+
+python main.py
+
+
+
+
+gunicorn app:FastAPI_app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 192.168.0.135:8181
+
